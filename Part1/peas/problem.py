@@ -1,3 +1,4 @@
+
 class Problem(object):
     def __init__(self, initial, goal=None):
         self.initial = initial

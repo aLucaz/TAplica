@@ -1,6 +1,5 @@
-from peas import prioQueue as pq
-from peas import node as n
-from peas import mapClass as mc
+from Part1.peas.node import Node
+from Part1.peas.prio_queue import Frontier
 
 
 def best_first_graph_search(problem, fn):
@@ -14,14 +13,14 @@ def best_first_graph_search(problem, fn):
     Si f es una heurística tenemos Busqueda Voraz;
     Si f es node.path_cost + heuristica(node) tenemos A* """
 
-    frontier = pq.Frontier( fn )  
-    frontier.add(n.Node(problem.initial))
-    explored = set()     
-    visited_nodes = []   
+    frontier = Frontier(fn)
+    frontier.add(Node(problem.initial))
+    explored = set()
+    visited_nodes = []
 
     while frontier:
         node = frontier.pop()
-        visited_nodes.append(node)        
+        visited_nodes.append(node)
         if problem.goal_test(node.state):
             return node, visited_nodes
         explored.add(node.state)
@@ -32,10 +31,10 @@ def best_first_graph_search(problem, fn):
             elif child in frontier:
                 if fn(child) < frontier[child]:
                     frontier.replace(child)
-    return None,visited_nodes
+    return None, visited_nodes
 
-                    
-""" Algoritmo A*, un caso especial de best_first_graph_search con f = path_cost + heuristic  """
+
 def astar_search(problem):
+    """ Algoritmo A*, un caso especial de best_first_graph_search con f = path_cost + heuristic  """
     fn = lambda node: node.path_cost + problem.map.heuristics[str(node.state)]
     return best_first_graph_search(problem, fn)

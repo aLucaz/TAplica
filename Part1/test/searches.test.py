@@ -1,16 +1,11 @@
-from matplotlib import pyplot as plt
-import pandas as pd
+# from matplotlib import pyplot as plt
+# import pandas as pd
 
-from searchs import *
-
-from peas import mapCreation as create 
-from peas import mapClass as mc
-from peas import mapSearchProblem as msp
-
-from searchs import bestFirstGraphSearch as bfgs
-
+from Part1.peas.map import create_map
+from Part1.peas.map_search_problem import MapSearchProblem
+from Part1.searchs.best_first_graph_search import astar_search
 
 if __name__ == "__main__":
-    pittsMap = create.create_map()
-    pittsProblem = msp.MapSearchProblem('104878620','105012740',pittsMap)
-    solNode,exploredNodes = bfgs.astar_search(pittsProblem)
+    pittsMap = create_map()
+    pittsProblem = MapSearchProblem('104878620', '105012740', pittsMap)
+    solNode,exploredNodes = astar_search(pittsProblem)
