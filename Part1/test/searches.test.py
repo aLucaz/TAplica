@@ -7,5 +7,6 @@ from Part1.searchs.best_first_graph_search import astar_search
 
 if __name__ == "__main__":
     pittsMap = create_map()
+    print(pittsMap.heuristics['1'])
     pittsProblem = MapSearchProblem('104878620', '105012740', pittsMap)
-    solNode,exploredNodes = astar_search(pittsProblem)
+    solNode, exploredNodes = astar_search(pittsProblem)

@@ -23,10 +23,10 @@ def create_map():
         pittsburgh_map[str(data_map.nodeTwo.iloc[i])] = []
     
     for i in range(len(data_map.nodeOne)): 
-        neighbors = (str(data_map.nodeTwo.iloc[i]),data_map.distance.iloc[i])
+        neighbors = (str(data_map.nodeTwo.iloc[i]), data_map.distance.iloc[i])
         pittsburgh_map[str(data_map.nodeOne.iloc[i])].append(neighbors)
 
-        neighbors = (str(data_map.nodeOne.iloc[i]),data_map.distance.iloc[i])
+        neighbors = (str(data_map.nodeOne.iloc[i]), data_map.distance.iloc[i])
         pittsburgh_map[str(data_map.nodeTwo.iloc[i])].append(neighbors)
 
     # Processing heuristics file

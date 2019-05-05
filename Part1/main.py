@@ -1,4 +1,3 @@
-
 import click
 
 
@@ -18,4 +17,3 @@ def run(streets_file, id_init, id_goal, method, heuristic_file):
 
 if __name__ == "__main__":
     run()
-
