@@ -8,7 +8,7 @@ from searchs.breadth_first_graph_search import breadth_first_graph_search
 
 
 def test_breadth():
-    pittsMap = create_map()
-    pittsProblem = MapSearchProblem('104878620', '105012740', pittsMap)
+    pitts_map = create_map()
+    pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
     # solNode, exploredNodes = astar_search(pittsProblem)
-    solNode, exploredNodes = breadth_first_graph_search(pittsProblem)
+    solNode, exploredNodes = breadth_first_graph_search(pitts_problem)
