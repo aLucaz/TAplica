@@ -1,4 +1,4 @@
-from Part1.peas.problem import Problem
+from peas.problem import Problem
 
 
 class MapSearchProblem(Problem):

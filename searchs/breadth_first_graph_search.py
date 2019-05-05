@@ -1,5 +1,5 @@
 from collections import deque
-from Part1.peas.node import Node
+from peas.node import Node
 
 
 def breadth_first_graph_search(problem):

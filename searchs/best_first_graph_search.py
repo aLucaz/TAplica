@@ -1,5 +1,5 @@
-from Part1.peas.node import Node
-from Part1.peas.prio_queue import Frontier
+from peas.node import Node
+from peas.prio_queue import Frontier
 
 
 def best_first_graph_search(problem, fn):

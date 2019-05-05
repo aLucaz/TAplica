@@ -1,6 +1,6 @@
 import click
 
-from Part1.test.test_searches import test_breadth
+from test.test_searches import test_breadth
 
 
 @click.command()
