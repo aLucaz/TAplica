@@ -10,6 +10,7 @@ def breadth_first_graph_search(problem):
     if problem.goal_test(node.state):
         return node, visited_nodes
 
+    #tiene que ser fifo_ squeue 
     frontier = deque([node])
     explored = set()
 

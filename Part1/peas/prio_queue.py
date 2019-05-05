@@ -1,6 +1,5 @@
 import bisect
 
-
 class Frontier:
     """ Constructor de la frontera de prioridad, le paso la funcion de evaluacion """
     def __init__(self, fn):
