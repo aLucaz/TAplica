@@ -30,7 +30,7 @@ def create_map():
         pittsburgh_map[str(data_map.nodeTwo.iloc[i])].append(neighbors)
 
     # Processing heuristics file
-    data_heu = read_csv(heuri_pitts_path,' ')
+    data_heu = read_csv(heuri_pitts_path, ' ')
     pittsburgh_heu = {}
 
     for i in range(len(data_heu.nodeStart)):

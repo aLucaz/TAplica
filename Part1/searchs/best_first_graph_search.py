@@ -21,8 +21,10 @@ def best_first_graph_search(problem, fn):
     while frontier:
         node = frontier.pop()
         visited_nodes.append(node)
+
         if problem.goal_test(node.state):
             return node, visited_nodes
+
         explored.add(node.state)
         for action in problem.actions(node.state):
             child = node.child_node(problem, action)
