@@ -28,7 +28,8 @@ class Frontier:
     """ Para saber si algún nodo esta en la frontera """
     def __contains__(self, node):
         return any(item[1].state == node.state for item in self.prioq)
-
+        
+    """ Para obtener el valor de la funcion de evaluacion de un nodo de la frontera"""
     def __getitem__(self, node):
         for fn, nodei in self.prioq:
             if nodei.state == node.state:

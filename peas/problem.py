@@ -7,14 +7,11 @@ class Problem(object):
     def actions(self, state):
         raise NotImplementedError
 
-    def result(self, state, action):
-        raise NotImplementedError
-
     def goal_test(self, state):
         raise NotImplementedError
 
-    def path_cost(self, c, state1, action, state2):
-        return c + 1
+    def path_cost(self, path_cost, state1, action):
+        raise NotImplementedError
 
     def value(self, state):
         raise NotImplementedError
