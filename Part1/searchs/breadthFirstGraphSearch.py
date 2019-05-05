@@ -16,6 +16,6 @@ def breadth_first_graph_search(problem):
         for child in node.expand(problem):
             if child.state not in explored and child not in frontier:
                 if problem.goal_test(child.state):
-                    return child
+                    return child, visited_nodes
                 frontier.append(child)
     return None,visited_nodes
