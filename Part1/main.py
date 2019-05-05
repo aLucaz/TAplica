@@ -1,5 +1,7 @@
 import click
 
+from Part1.test.test_searches import test_breadth
+
 
 @click.command()
 @click.option('-e', required=True, type=click.File('r'), help="archivo de segmentos de calles")
@@ -16,4 +18,6 @@ def run(streets_file, id_init, id_goal, method, heuristic_file):
 
 
 if __name__ == "__main__":
-    run()
+    # run()
+    test_breadth()
+
