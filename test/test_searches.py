@@ -11,4 +11,7 @@ def test_breadth():
     pitts_map = create_map()
     pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
     # solNode, exploredNodes = astar_search(pittsProblem)
-    solNode, exploredNodes = breadth_first_graph_search(pitts_problem)
+    sol_node, explored_nodes = breadth_first_graph_search(pitts_problem)
+    print("node state: ", sol_node.state)
+    print("way: ")
+    [print(node) for node in sol_node.solution()]

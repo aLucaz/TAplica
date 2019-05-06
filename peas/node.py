@@ -25,7 +25,7 @@ class Node:
 
     def solution(self):
         """Retorna la secuencia de acciones para ir de la raiz a este nodo."""
-        return [node.action for node in self.path()[1:]]
+        return [node.state for node in self.path()[1:]]
 
     def path(self):
         """Retorna una lista de nodos formando un camino de la raiz a este nodo."""
@@ -37,3 +37,6 @@ class Node:
 
     def __eq__(self, other):         
         return isinstance(other, Node) and self.state == other.state
+
+    def __repr__(self):
+        return f"<Node: state={self.state}, cost={self.path_cost}>"
