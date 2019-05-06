@@ -6,10 +6,7 @@ class Node:
         self.state = state  # posicion actual        
         self.parent = parent
         self.path_cost = path_cost
-        # nro nodos en el path
-        self.depth = 0
-        if parent:
-            self.depth = parent.depth + 1
+        
 
     def expand(self, problem):
         """Devuelve los nodos alcanzables en un paso a partir de este nodo."""
@@ -25,7 +22,7 @@ class Node:
 
     def solution(self):
         """Retorna la secuencia de acciones para ir de la raiz a este nodo."""
-        return [node.action for node in self.path()[1:]]
+        return [node.state for node in self.path()[:]]
 
     def path(self):
         """Retorna una lista de nodos formando un camino de la raiz a este nodo."""
@@ -37,3 +34,8 @@ class Node:
 
     def __eq__(self, other):         
         return isinstance(other, Node) and self.state == other.state
+   
+    def __repr__(self):
+        return "<Node {}>".format(self.state)
+
+    

@@ -10,5 +10,15 @@ from searchs.breadth_first_graph_search import breadth_first_graph_search
 def test_breadth():
     pitts_map = create_map()
     pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
-    # solNode, exploredNodes = astar_search(pittsProblem)
-    solNode, exploredNodes = breadth_first_graph_search(pitts_problem)
+    goalNode, visitedNodes = astar_search(pitts_problem)
+    
+    rute = goalNode.solution()
+    print("Ruta encontrada: ")
+    for node in rute: 
+        print(node,end='')
+    
+    print("Costo de la ruta encontrada: {}".format(goalNode.path_cost))
+    print("Número de nodos en la ruta encontrada: {}".format(len(rute)))
+    print("Número de nodos visitados: {}".format(len(visitedNodes)))
+    print("Número de nodos en memoria: {}".format())
+    """" 1. design 2. story  """
