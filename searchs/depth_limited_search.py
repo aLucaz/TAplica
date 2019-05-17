@@ -18,24 +18,18 @@ def recursive_dls(node, problem, limit, explored_nodes):
 
     if problem.goal_test(node.state):
         return node, explored_nodes
-
     elif limit == 0:
         return "cutoff", explored_nodes
-
     else:
         cutoff_flag = False
         for action in problem.actions(node.state):
             child = node.child_node(problem, action)
 
-            # if child.state in explored_nodes:
-            #    continue
-
             result, explored_nodes = recursive_dls(child, problem, limit - 1, explored_nodes)
 
             if result == "cutoff":
                 cutoff_flag = True
-
-            elif result is None:
+            elif result is not None:
                 return result, explored_nodes
 
         return "cutoff" if cutoff_flag else None, explored_nodes
