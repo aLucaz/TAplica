@@ -4,40 +4,41 @@ from peas.node import Node
 
 
 def depth_limited_search(problem, limit):
-    return recursive_dls(Node(problem.initial), problem, limit, [])
+    return recursive_dls(Node(problem.initial), problem, limit, set())
 
 
-def recursive_dls(node, problem, limit, visited_nodes):
+def recursive_dls(node, problem, limit, explored_nodes):
     """
+    :param explored_nodes: set
     :param limit: int
     :param node: Node
     :type problem: MapSearchProblem
     """
-    visited_nodes.append(node)
+    explored_nodes.add(node)
 
     if problem.goal_test(node.state):
-        return node.solution(), cant_visited + 1
+        return node.solution(), explored_nodes
 
     elif limit == 0:
-        return "cutoff", cant_visited + 1
+        return "cutoff", explored_nodes
 
     else:
         cutoff_flag = False
         for action in problem.actions(node.state):
             child = node.child_node(problem, action)
-            result = recursive_dls(child, problem, limit - 1, cant_visited)
+            result, explored_nodes = recursive_dls(child, problem, limit - 1, explored_nodes)
 
             if result == "cutoff":
                 cutoff_flag = True
 
             elif result is None:
-                return result
+                return result, explored_nodes
 
-        return "cutoff" if cutoff_flag else None
+        return "cutoff" if cutoff_flag else None, explored_nodes
 
 
 def iterative_deepening_search(problem):
     for depth in range(sys.maxsize):
-        result, cant_visited = depth_limited_search(problem, depth)
+        result, explored_nodes = depth_limited_search(problem, depth)
         if result != 'cutoff':
             return result
