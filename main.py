@@ -3,6 +3,7 @@ import click
 from test.test_astar_search import test_astar_search
 from test.test_depth_graph_search import test_depth_graph_search
 from test.test_breadth_first_graph_search import test_breadth_first_graph_search
+from test.test_depth_limited_search import test_limited
 
 
 @click.command()
@@ -21,6 +22,7 @@ def run(streets_file, id_init, id_goal, method, heuristic_file):
 
 if __name__ == "__main__":
     # run()
-    test_breadth_first_graph_search()
-    test_depth_graph_search()
-    test_astar_search()
+    # test_breadth_first_graph_search()
+    # test_depth_graph_search()
+    # test_astar_search()
+    test_limited()

@@ -14,10 +14,10 @@ def recursive_dls(node, problem, limit, explored_nodes):
     :param node: Node
     :type problem: MapSearchProblem
     """
-    explored_nodes.add(node)
+    explored_nodes.add(node.state)
 
     if problem.goal_test(node.state):
-        return node.solution(), explored_nodes
+        return node, explored_nodes
 
     elif limit == 0:
         return "cutoff", explored_nodes
@@ -26,6 +26,10 @@ def recursive_dls(node, problem, limit, explored_nodes):
         cutoff_flag = False
         for action in problem.actions(node.state):
             child = node.child_node(problem, action)
+
+            # if child.state in explored_nodes:
+            #    continue
+
             result, explored_nodes = recursive_dls(child, problem, limit - 1, explored_nodes)
 
             if result == "cutoff":
@@ -38,7 +42,11 @@ def recursive_dls(node, problem, limit, explored_nodes):
 
 
 def iterative_deepening_search(problem):
+    explored = []
     for depth in range(sys.maxsize):
+        print("depth: ", depth, end="  ")
         result, explored_nodes = depth_limited_search(problem, depth)
+        explored.append(len(explored_nodes))
+        print("cant: ", len(explored_nodes))
         if result != 'cutoff':
-            return result
+            return result, explored
