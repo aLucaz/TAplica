@@ -8,7 +8,7 @@ from searchs.best_first_graph_search import astar_search
 
 def test_astar_search():
     pitts_map = create_map()
-    pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
+    pitts_problem = MapSearchProblem('656071251', '105012740', pitts_map)
     goal_node, visited_nodes, frontier_nodes = astar_search(pitts_problem)
 
     rute = goal_node.solution()

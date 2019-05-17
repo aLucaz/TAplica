@@ -21,6 +21,6 @@ def run(streets_file, id_init, id_goal, method, heuristic_file):
 
 if __name__ == "__main__":
     # run()
-    test_breadth_first_graph_search()
-    test_depth_graph_search()
+    #test_breadth_first_graph_search()
+    #test_depth_graph_search()
     test_astar_search()

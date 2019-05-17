@@ -5,7 +5,7 @@ from searchs.depth_graph_search import depth_graph_search
 
 def test_depth_graph_search():
     pitts_map = create_map()
-    pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
+    pitts_problem = MapSearchProblem('656071251', '105012740', pitts_map)
     goal_node, explored_nodes, frontier_length_nodes = depth_graph_search(pitts_problem)
         
     rute = goal_node.solution()
