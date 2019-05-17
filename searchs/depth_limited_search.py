@@ -15,7 +15,7 @@ def recursive_dls(node, problem, limit):
         return node.solution()
 
     elif limit == 0:
-        return Cutoff()
+        return "cutoff"
 
     else:
         cutoff_flag = False
@@ -23,21 +23,10 @@ def recursive_dls(node, problem, limit):
             child = node.child_node(problem, action)
             result = recursive_dls(child, problem, limit - 1)
 
-            if result is Cutoff:
+            if result == "cutoff":
                 cutoff_flag = True
 
-            elif result is Failure:
+            elif result is None:
                 return result
 
-        if cutoff_flag:
-            return Cutoff()
-        else:
-            return Failure()
-
-
-class Cutoff:
-    pass
-
-
-class Failure:
-    pass
+        return "cutoff" if cutoff_flag else None
