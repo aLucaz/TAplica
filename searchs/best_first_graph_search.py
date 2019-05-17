@@ -12,16 +12,12 @@ def best_first_graph_search(problem, fn):
     frontier = Frontier(fn)
     frontier.add(Node(problem.initial))
     explored = set()
-    visited_nodes = []
-
+    
     while frontier:
         node = frontier.pop()
-        visited_nodes.append(node)
-
-        if problem.goal_test(node.state):
-            return node, visited_nodes, len(frontier)
-
         explored.add(node.state)
+        if problem.goal_test(node.state):
+            return node, explored, len(frontier)
         for action in problem.actions(node.state):
             child = node.child_node(problem, action)
             if child.state not in explored and child not in frontier:
@@ -30,10 +26,9 @@ def best_first_graph_search(problem, fn):
                 if fn(child) < frontier[child]:
                     frontier.replace(child)
     
-    return None, visited_nodes, len(frontier)
+    return None, explored, len(frontier)
 
 
 def astar_search(problem):
-    """ Algoritmo A*, un caso especial de best_first_graph_search con f = path_cost + heuristic  """
     fn = lambda node: node.path_cost + problem.map.heuristics[str(node.state)]
     return best_first_graph_search(problem, fn)

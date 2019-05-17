@@ -10,7 +10,7 @@ from searchs.breadth_first_graph_search import breadth_first_graph_search
 def test_best_first_graph_search():
     pitts_map = create_map()
     pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
-    goalNode, visitedNodes , frontierNodes= astar_search(pitts_problem)
+    goalNode,  exploredNodes ,frontierNodes = astar_search(pitts_problem)
     
     
     rute = goalNode.solution()
@@ -20,5 +20,5 @@ def test_best_first_graph_search():
     print("META")
     print("Costo de la ruta encontrada: {} Km".format(goalNode.path_cost))
     print("Número de nodos en la ruta encontrada: {}".format(len(rute)))
-    print("Número de nodos visitados: {}".format(len(visitedNodes)))
-    print("Número de nodos en memoria: {}".format(len(visitedNodes) + frontierNodes))
+    print("Número de nodos visitados: {}".format(len(exploredNodes)))
+    print("Número de nodos en memoria: {}".format(len(exploredNodes) + frontierNodes))
