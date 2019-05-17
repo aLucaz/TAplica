@@ -4,10 +4,6 @@ from peas.prio_queue import Frontier
 
 def best_first_graph_search(problem, fn):
     """
-    Busca el objetivo expandiendo el nodo de la frontera con el menor valor de la funcion f.     
-    Memoriza estados visitados
-    Antes de llamar a este algoritmo hay que especificar La funcion f(node). 
-
     Si f es node.depth tenemos Busqueda en Amplitud; 
     si f es node.path_cost tenemos Busqueda  de Costo Uniforme.
     Si f es una heurística tenemos Busqueda Voraz;
@@ -23,7 +19,7 @@ def best_first_graph_search(problem, fn):
         visited_nodes.append(node)
 
         if problem.goal_test(node.state):
-            return node, visited_nodes
+            return node, visited_nodes, len(frontier)
 
         explored.add(node.state)
         for action in problem.actions(node.state):
@@ -33,7 +29,8 @@ def best_first_graph_search(problem, fn):
             elif child in frontier:
                 if fn(child) < frontier[child]:
                     frontier.replace(child)
-    return None, visited_nodes
+    
+    return None, visited_nodes, len(frontier)
 
 
 def astar_search(problem):
