@@ -1,14 +1,12 @@
 from peas.map import create_map
 from peas.map_search_problem import MapSearchProblem
-from searchs.breadth_first_graph_search import breadth_first_graph_search
+from searchs.depth_graph_search import depth_graph_search
 
 
-def test_breadth_first_graph_search():
+def test_depth_graph_search():
     pitts_map = create_map()
     pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
-    goalNode, exploredNodes , frontierLengthNodes= breadth_first_graph_search(pitts_problem)
-    
-
+    goalNode, exploredNodes , frontierLengthNodes= depth_graph_search(pitts_problem)
         
     rute = goalNode.solution()
     print("Ruta encontrada: ")
