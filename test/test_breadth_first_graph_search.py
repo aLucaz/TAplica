@@ -3,11 +3,8 @@ from peas.map_search_problem import MapSearchProblem
 from searchs.breadth_first_graph_search import breadth_first_graph_search
 
 
-def test_breadth_first_graph_search():
-    pitts_map = create_map()
-    pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
-    goal_node, explored_nodes, frontier_length_nodes = breadth_first_graph_search(pitts_problem)
-
+def test_breadth_first_graph_search(problem):
+    goal_node, explored_nodes, frontier_length_nodes = breadth_first_graph_search(problem)
     rute = goal_node.solution()
 
     print("Número de nodos visitados: {}".format(len(explored_nodes)))

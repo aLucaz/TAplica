@@ -6,11 +6,8 @@ from peas.map_search_problem import MapSearchProblem
 from searchs.best_first_graph_search import astar_search
 
 
-def test_astar_search():
-    pitts_map = create_map()
-    pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
-    goal_node, visited_nodes, frontier_nodes = astar_search(pitts_problem)
-
+def test_astar_search(problem):
+    goal_node, visited_nodes, frontier_nodes = astar_search(problem)
     rute = goal_node.solution()
 
     print("Costo de la ruta encontrada: {} Km".format(goal_node.path_cost))

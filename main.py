@@ -1,5 +1,7 @@
 import click
 
+from peas.map import create_map
+from peas.map_search_problem import MapSearchProblem
 from test.test_astar_search import test_astar_search
 from test.test_depth_graph_search import test_depth_graph_search
 from test.test_breadth_first_graph_search import test_breadth_first_graph_search
@@ -22,7 +24,12 @@ def run(streets_file, id_init, id_goal, method, heuristic_file):
 
 if __name__ == "__main__":
     # run()
-    # test_breadth_first_graph_search()
-    # test_depth_graph_search()
-    # test_astar_search()
-    test_limited()
+    id_start, id_end = "656071251", "105012740"
+
+    pitts_map = create_map()
+    pitts_problem = MapSearchProblem(id_start, id_end, pitts_map)
+    
+    # test_breadth_first_graph_search(pitts_problem)
+    # test_depth_graph_search(pitts_problem)
+    # test_astar_search(pitts_problem)
+    test_limited(pitts_problem)

@@ -3,11 +3,8 @@ from peas.map_search_problem import MapSearchProblem
 from searchs.depth_limited_search import iterative_deepening_search
 
 
-def test_limited():
-    pitts_map = create_map()
-    pitts_problem = MapSearchProblem('104878620', '105012740', pitts_map)
-    goal_node, explored = iterative_deepening_search(pitts_problem)
-
+def test_limited(problem):
+    goal_node, explored = iterative_deepening_search(problem)
     rute = goal_node.solution()
 
     print("Número de nodos visitados: {}".format(sum(explored)))
