@@ -15,4 +15,4 @@ def graph_search(problem, frontier):
         frontier.extend(child for child in node.expand(problem)
                         if child.state not in explored and
                         child not in frontier)
-    return None, visited_nodes
+    return None, visited_nodes, len(frontier)
