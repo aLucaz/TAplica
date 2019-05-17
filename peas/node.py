@@ -34,8 +34,6 @@ class Node:
 
     def __eq__(self, other):         
         return isinstance(other, Node) and self.state == other.state
-   
-    def __repr__(self):
-        return "<Node {}>".format(self.state)
 
-    
+    def __repr__(self):
+        return f"<Node: state={self.state}, cost={self.path_cost}>"
