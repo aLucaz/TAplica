@@ -34,3 +34,6 @@ class Frontier:
         for fn, nodei in self.prioq:
             if nodei.state == node.state:
                 return fn
+    """ Para devolver la longitud de la cola de prioridad"""
+    def __len__(self): 
+        return len(self.prioq)
