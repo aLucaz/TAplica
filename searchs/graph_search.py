@@ -10,7 +10,7 @@ def graph_search(problem, frontier):
         node = frontier.pop()
         visited_nodes.append(node)
         if problem.goal_test(node.state):
-            return node, visited_nodes
+            return node, visited_nodes, len(frontier)
         explored.add(node.state)
         frontier.extend(child for child in node.expand(problem)
                         if child.state not in explored and
