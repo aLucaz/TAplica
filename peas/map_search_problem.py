@@ -39,3 +39,20 @@ class MapSearchProblem(Problem):
                 break
 
         return path_cost + action_cost
+
+
+    #para bidirectional search
+
+    def find_min_edge(self):
+        infinity  = float('inf')
+        minEdge = infinity
+        for neighors in self.map.neighbors.values():
+            neighors.sort(key=lambda tup : tup[1])           
+            local_min = neighors[0][1]
+            minEdge = min(minEdge, local_min)
+        return minEdge   
+
+
+    def heuristic(self, state): 
+        return self.map.heuristics[state]
+    

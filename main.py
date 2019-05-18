@@ -6,7 +6,7 @@ from test.test_astar_search import test_astar_search
 from test.test_depth_graph_search import test_depth_graph_search
 from test.test_breadth_first_graph_search import test_breadth_first_graph_search
 from test.test_depth_limited_search import test_limited
-
+from test.test_bidirectional_search import test_bidirectional_search
 
 @click.command()
 @click.option('-e', required=True, type=click.File('r'), help="archivo de segmentos de calles")
@@ -32,4 +32,5 @@ if __name__ == "__main__":
     # test_breadth_first_graph_search(pitts_problem)
     # test_depth_graph_search(pitts_problem)
     # test_astar_search(pitts_problem)
-    test_limited(pitts_problem)
+    # test_limited(pitts_problem)
+    test_bidirectional_search(pitts_problem)
