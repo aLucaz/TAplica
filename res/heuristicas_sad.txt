@@ -1,0 +1,14 @@
+nodeStart distanceH 
+A 366
+Z 374
+O 380
+S 253
+T 329
+L 244
+M 241
+D 242
+C 160
+R 193
+P 10
+F 176
+B 0

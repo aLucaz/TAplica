@@ -24,7 +24,7 @@ def run(streets_file, id_init, id_goal, method, heuristic_file):
 
 if __name__ == "__main__":
     # run()
-    id_start, id_end = "656071251", "105012740"
+    id_start, id_end = "S", "B"
 
     pitts_map = create_map()
     pitts_problem = MapSearchProblem(id_start, id_end, pitts_map)

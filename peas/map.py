@@ -11,8 +11,8 @@ class Map:
 def create_map():
     
     # file paths
-    edges_pitts_path = path.join(path.dirname(__file__), '../res/edges_pitts.txt')
-    heuri_pitts_path = path.join(path.dirname(__file__), '../res/heuristics_pitts.txt')
+    edges_pitts_path = path.join(path.dirname(__file__), '../res/sad.txt')
+    heuri_pitts_path = path.join(path.dirname(__file__), '../res/heuristicas_sad.txt')
 
     # Processing Pittsburgh data file
     data_map = read_csv(edges_pitts_path, ' ')

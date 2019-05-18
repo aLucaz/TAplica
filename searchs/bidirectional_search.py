@@ -7,6 +7,7 @@ def bidirectional_search(problem):
     closedF, closedB = [], []
     U = infinity
 
+    numBucles = 0
 
     def extend(U, open_dir, open_other_dir, g_dir, g_other_dir, closed_dir):
         """Extend search in given direction"""
@@ -65,7 +66,9 @@ def bidirectional_search(problem):
         C = min(pr_min_f, pr_min_b)
         
         if U <= max(C, f_min_f, f_min_b, g_min_f + g_min_b + min_edge):
-            return U, gF , gB , openF , openB , closedF , closedB
+            return U, gF , gB , openF , openB , closedF , closedB, numBucles
+
+        numBucles+=1
 
         #en cada iteracion se debe expandir un nodo con prioridad C, el de menor prioridad
         if C == pr_min_f:
