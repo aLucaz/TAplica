@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.btn-group {
+    float: left;
+    position: absolute;
+}
+
+
+.btn-group button {
+    background-color: rgb(195, 45, 45);
+    border: 2px solid rgb(219, 214, 214);
+    color: white;
+    font-family: monospace, sans-serif; 
+    text-align: center;
+    opacity: 0.9;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 150px;
+    height: 100px;
+    display: block;
+}
+  
+.btn-group button:not(:last-child) {
+    border-bottom: none;
+}
+  
+.btn-group button:hover {
+    background-color: #09610c;
+}

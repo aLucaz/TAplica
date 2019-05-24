@@ -1,4 +1,4 @@
-from fullstack.backend.routes import app
+from web.app import app
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
