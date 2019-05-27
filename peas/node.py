@@ -16,7 +16,7 @@ class Node:
     def child_node(self, problem, action):
         """action es el id del nodo hacia donde se va, el nuevo nodo creado tendra como estado 
         tambien a action"""
-        state = action  # TODO(2): pensar en una mejor implementacion
+        state = action
         return Node(state, self,
                     problem.path_cost(self.path_cost, self.state, action))
 
