@@ -1,8 +1,3 @@
-# from matplotlib import pyplot as plt
-# import pandas as pd
-
-from peas.map import create_map
-from peas.map_search_problem import MapSearchProblem
 from searchs.best_first_graph_search import astar_search
 
 

@@ -8,11 +8,7 @@ class Map:
         self.heuristics = heuristics
 
 
-def create_map():
-    
-    # file paths
-    edges_pitts_path = path.join(path.dirname(__file__), '../res/edges_pitts.txt')
-    heuri_pitts_path = path.join(path.dirname(__file__), '../res/heuristics_pitts.txt')
+def create_map(edges_pitts_path, heuri_pitts_path=None):
 
     # Processing Pittsburgh data file
     data_map = read_csv(edges_pitts_path, ' ')
@@ -30,11 +26,11 @@ def create_map():
         pittsburgh_map[str(data_map.nodeTwo.iloc[i])].append(neighbors)
 
     # Processing heuristics file
-    data_heu = read_csv(heuri_pitts_path, ' ')
     pittsburgh_heu = {}
-
-    for i in range(len(data_heu.nodeStart)):
-        pittsburgh_heu[str(data_heu.nodeStart.iloc[i])] = data_heu.distanceH.iloc[i]
+    if heuri_pitts_path is not None:  # no implica heuristica
+        data_heu = read_csv(heuri_pitts_path, ' ')
+        for i in range(len(data_heu.nodeStart)):
+            pittsburgh_heu[str(data_heu.nodeStart.iloc[i])] = data_heu.distanceH.iloc[i]
 
     # Creating Map object with neighbors and heuristics from files
     pittsburgh_map = Map(pittsburgh_map, pittsburgh_heu)
